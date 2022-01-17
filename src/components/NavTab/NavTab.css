@@ -1,0 +1,29 @@
+.navigation-tab {
+    background-color: rgba(245, 245, 245, 1);
+    margin-bottom: 56px;
+}
+
+.navigation-tab__links {
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.navigation-tab__link {
+    margin-right: 40px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.navigation-tab__link:last-of-type {
+    margin: 0;
+}
+
+@media screen and (max-width: 769px) {
+    .navigation-tab__link {
+    margin-right: 24px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    }
+}
