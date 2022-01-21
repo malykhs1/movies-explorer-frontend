@@ -4,13 +4,13 @@ export const NavTab = () => {
   return (
     <nav className="navigation-tab">
       <div className="navigation-tab__links">
-      <a className="navigation-tab__link" href="#">
+      <a className="navigation-tab__link" href="#about-project">
          О проекте
         </a>
-        <a className="navigation-tab__link" href="#">
+        <a className="navigation-tab__link" href="#techs">
           Технологии
         </a>
-        <a className="navigation-tab__link" href="#">
+        <a className="navigation-tab__link" href="#about-me">
           Студент
         </a>
       </div>

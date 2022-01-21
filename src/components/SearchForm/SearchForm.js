@@ -1,29 +1,11 @@
 import React from "react";
-import logo from "../../images/logo.svg";
 import searchIcon from "../../images/search-icon.svg";
 
 export const SearchForm = () => {
 
     return (
         <>
-            <header className="header header_theme_white">
-                <img src={logo} alt="Место" className="header__logo" />
-                <div className="navigation-tab__links">
-                    <a className="navigation-tab__link" href="#">
-                        Фильмы
-                    </a>
-                    <a className="navigation-tab__link" href="#">
-                        Сохраненные фильмы
-                    </a>
-                </div>
-                <div className="header__buttons">
-                    <button className="header__button_account">
-                        Аккаунт
-                    </button>
-                </div>
-            </header>
-
-            <section className="film-search section">
+        <section className="film-search section_position_movie ">
                 <div className="film-search__container">
                 <form className="film-search__form">
                     <input
@@ -33,7 +15,9 @@ export const SearchForm = () => {
                         type="search"
                         placeholder="Фильм"
                     />
-                    <img className="film-search__button" src={searchIcon} alt="Поиск" />
+                    <button className="film-search__button">
+                    <img className="film-search__button-pic" src={searchIcon} alt="Поиск" />
+                    </button>
                 </form>
                 <div className="film-search__checkbox">
                 <p className="film-search__checkbox-tittle">Короткометражки</p>

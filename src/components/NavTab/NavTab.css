@@ -1,6 +1,5 @@
 .navigation-tab {
     background-color: rgba(245, 245, 245, 1);
-    margin-bottom: 56px;
 }
 
 .navigation-tab__links {
@@ -13,6 +12,10 @@
 .navigation-tab__link {
     margin-right: 40px;
     color: rgba(0, 0, 0, 1);
+}
+
+.navigation-tab__link:hover {
+    opacity: 0.6;
 }
 
 .navigation-tab__link:last-of-type {

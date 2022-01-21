@@ -11,7 +11,7 @@
 
 .register__container {
     margin: auto;
-    margin-top: 60px;
+    margin-top: 70px;
     max-width: 396px;
     min-height: 330px;
 }
@@ -26,7 +26,7 @@
 @media screen and (max-width: 540px) {
     .register__container {
         margin-top: 56px;
-        margin-bottom: 56px;
+        margin-bottom: 30px;
         max-width: 260px;
     }
 }
@@ -105,7 +105,10 @@
     border: 1px solid #cecece;
     border-radius: 8px;
     margin-top: 10px;
-    margin-bottom: 20px;
+}
+
+.register__input:last-of-type {
+    margin-bottom: 0;
 }
 
 
@@ -122,12 +125,28 @@
     margin-top: 69px;
     width: 100%;
     min-height: 50px;
+    padding: 0      ;
 }
 
 @media screen and (max-width: 440px) {
     .register__button {
+        margin-top: 157px;
         font-size: 12px;
         font-weight: 500;
         line-height: 15px;
     }
+}
+
+.register__errors {
+    display: flex;
+    flex-direction: row;
+}
+.register__error {
+margin-right: 5px;
+margin-top: 10px;
+margin-bottom: 5px;
+color: rgba(238, 52, 101, 1);
+font-size: 10px;
+font-weight: 400;
+line-height: 12px;
 }

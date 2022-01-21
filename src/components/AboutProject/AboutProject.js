@@ -2,7 +2,7 @@ import React from "react";
 
 export const AboutProject = () => {
   return (
-    <section className="about-project section">
+    <section id="about-project" className="about-project section">
         <h2 className="section__title">О проекте</h2>
         <ul className="about-project-info">
             <li className="about-project-paragraph">

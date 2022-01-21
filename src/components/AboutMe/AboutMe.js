@@ -3,7 +3,7 @@ import myPhoto from "../../images/bio.jpeg"
 
 export const AboutMe = () => {
   return (
-    <section className="about-me section">
+    <section id="about-me" className="about-me section">
         <h2 className="section__title">Обо мне</h2>
         <div className="biography_place">
             <div className="biography_place_text">
