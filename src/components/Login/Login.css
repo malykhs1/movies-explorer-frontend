@@ -1,0 +1,135 @@
+.login__logo {
+    margin: 0;
+}
+
+@media screen and (max-width: 540px) {
+    .login__logo {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.login__container {
+    margin: auto;
+    margin-top: 70px;
+    max-width: 396px;
+    min-height: 330px;
+}
+
+@media screen and (max-width: 850px) {
+    .login__container {
+        margin-top: 232px;
+        margin-bottom: 232px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .login__container {
+        margin-top: 56px;
+        margin-bottom: 30px;
+        max-width: 260px;
+    }
+}
+
+.login__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 540px) {
+    .login__title {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+}
+
+.login__signin {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+}
+
+.login__register-link {
+    margin: 0;
+    text-decoration: none;
+    color: rgba(160, 160, 160, 1);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 850px) {
+    .login__register-link {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+    }
+}
+
+.login__register-link:last-child {
+    color: rgba(43, 224, 128, 1);
+    margin-left: 5px;
+}
+
+.login__label {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    color: rgba(160, 160, 160, 1);
+}
+
+.login__input {
+    min-width: 46px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    width: 100%;
+    color: black;
+    background: #f6f6f6;
+    border: 1px solid #cecece;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.login__input:last-of-type {
+    margin-bottom: 0;
+}
+
+.login__button {
+    background: rgba(43, 224, 128, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 2px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    margin-bottom: 16px;
+    margin-top: 159px;
+    width: 100%;
+    min-height: 50px;
+    padding: 0;
+}
+
+@media screen and (max-width: 440px) {
+    .login__button {
+        margin-top: 267px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 15px;
+    }
+}
