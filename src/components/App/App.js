@@ -12,16 +12,16 @@ import { Profile } from "../Profile/Profile";
 export const App = () => {
   return (
     <div className="root">
-      <Routes>
-        <Route path="/" element={<Main />}/>
-        <Route path="/movies" element={<Movies />}/>
-        <Route path="/saved-movies" element={<SavedMovies />}/>
-        <Route path="/profile" element={ <Profile />} />
-        <Route path="/sign-in" element={ <Login/>} />
-        <Route path="/sign-up" element={ <Register/>} />
-        <Route path="*" element={ <ErrorNotFound/>} />
-        <Route path="nav-test" element={ <Navigation/>} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/saved-movies" element={<SavedMovies />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/sign-in" element={<Login />} />
+          <Route path="/sign-up" element={<Register />} />
+          <Route path="*" element={<ErrorNotFound />} />
+          <Route path="nav-test" element={<Navigation />} />
+        </Routes>
     </div>
   );
 };

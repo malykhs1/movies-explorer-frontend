@@ -14,6 +14,7 @@ export const SearchForm = () => {
                         name="film-search"
                         type="search"
                         placeholder="Фильм"
+                        required="required"
                     />
                     <button className="film-search__button">
                     <img className="film-search__button-pic" src={searchIcon} alt="Поиск" />

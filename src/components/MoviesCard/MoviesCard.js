@@ -1,5 +1,4 @@
 import React from "react";
-import likeButtonActive from "../../images/like_active.svg";
 import cardPoster from "../../images/33-dis.png";
 
 export const MoviesCard = () => {
@@ -13,7 +12,7 @@ export const MoviesCard = () => {
             <p className="card__duration">1ч. 42м.</p>
             </div>
             <div className="card__like-container">
-            <img className="card__like" src={likeButtonActive} alt="Картинка фильма"/>
+            <button className="card__like card__like_active" alt="Картинка фильма"/>
             </div>
             </div>
             <img className="card__poster" src={cardPoster} alt="Обложка фильма"/>
@@ -26,7 +25,7 @@ export const MoviesCard = () => {
             <p className="card__duration">1ч. 42м.</p>
             </div>
             <div className="card__like-container">
-            <img className="card__like" src={likeButtonActive} alt="Картинка фильма"/>
+            <button className="card__like card__like_unactive" alt="Картинка фильма"/>
             </div>
             </div>
             <img className="card__poster" src={cardPoster} alt="Обложка фильма"/>
@@ -39,7 +38,7 @@ export const MoviesCard = () => {
             <p className="card__duration">1ч. 42м.</p>
             </div>
             <div className="card__like-container">
-            <img className="card__like" src={likeButtonActive} alt="Картинка фильма"/>
+            <button className="card__like card__like_active" alt="Картинка фильма"/>
             </div>
             </div>
             <img className="card__poster" src={cardPoster} alt="Обложка фильма"/>
@@ -52,7 +51,7 @@ export const MoviesCard = () => {
             <p className="card__duration">1ч. 42м.</p>
             </div>
             <div className="card__like-container">
-            <img className="card__like" src={likeButtonActive} alt="Картинка фильма"/>
+            <button className="card__like card__like_unactive" alt="Картинка фильма"/>
             </div>
             </div>
             <img className="card__poster" src={cardPoster} alt="Обложка фильма"/>
@@ -65,7 +64,7 @@ export const MoviesCard = () => {
             <p className="card__duration">1ч. 42м.</p>
             </div>
             <div className="card__like-container">
-            <img className="card__like" src={likeButtonActive} alt="Картинка фильма"/>
+            <button className="card__like card__like_active" alt="Картинка фильма"/>
             </div>
             </div>
             <img className="card__poster" src={cardPoster} alt="Обложка фильма"/>

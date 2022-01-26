@@ -62,6 +62,7 @@
 
 
 .register__login-link {
+    margin: 0;
     text-decoration: none;
     color: rgba(160, 160, 160, 1);
     font-size: 14px;

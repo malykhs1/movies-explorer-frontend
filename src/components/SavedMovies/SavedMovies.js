@@ -24,6 +24,7 @@ export const SavedMovies = () => {
           </Link>
         </div>
       </header>
+      <main>
       < Navigation />
       <SearchForm />
       <div className="card">
@@ -38,6 +39,7 @@ export const SavedMovies = () => {
         </div>
         <img className="card__poster" src={cardPoster} alt="Обложка фильма" />
       </div>
+      </main>
       <footer className="footer_position_movie ">
         <p className="footer__project-info">Учебный проект Яндекс.Практикум х BeatFilm.</p>
         <nav className="footer__row">

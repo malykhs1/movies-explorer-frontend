@@ -9,7 +9,7 @@ export const Movies = () => {
   return (
     <>
       <header className="header header_theme_white">
-      <Link to="/"><img src={logo} alt="Место" className="header__logo" /></Link> 
+        <Link to="/"><img src={logo} alt="Место" className="header__logo" /></Link>
         <div className="header__links">
           <Link to="/movies" className="header__link">
             Фильмы
@@ -24,10 +24,12 @@ export const Movies = () => {
           </Link>
         </div>
       </header>
-      < Navigation />
-      <SearchForm />
-      < MoviesCard />
-      < MoviesCardList />
+      <main>
+        < Navigation />
+        <SearchForm />
+        < MoviesCard />
+        < MoviesCardList />
+      </main>
       <footer className="footer_position_movie ">
         <p className="footer__project-info">Учебный проект Яндекс.Практикум х BeatFilm.</p>
         <nav className="footer__row">

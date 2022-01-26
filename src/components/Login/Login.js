@@ -10,8 +10,9 @@ export const Login = () => {
 
 
   return (
-    <section className="login__container">
-      <Link to="/"><img src={logo} alt="Место" className="header__logo" /></Link> 
+    <section className="login">
+    <div className="login__container">
+      <Link to="/"><img src={logo} alt="Место" className="login__logo" /></Link> 
       <h2 className="login__title">Рады вас видеть!</h2>
       <form className="login__form">
         <label className="login__label" htmlFor="email">Email</label>
@@ -52,6 +53,7 @@ export const Login = () => {
         <Link to="/sign-up" className="login__register-link">
           Регистрация
         </Link>
+      </div>
       </div>
     </section>
   );

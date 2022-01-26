@@ -78,6 +78,16 @@
     height: 12px;
 }
 
+.card__like_active {
+    background: rgba(249, 249, 249, 1);
+    background-image: url(../../images/like_active.svg);
+}
+
+.card__like_unactive {
+    background: rgba(249, 249, 249, 1);
+    background-image: url(../../images/like_unactive.svg);
+}
+
 .card__like:hover {
     cursor: pointer;
 }

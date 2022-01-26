@@ -11,12 +11,14 @@ export const Main = () => {
     return (
       <>
       <Header />
+      <main>
       <Promo />
       <NavTab />
       <AboutProject />
       <Techs />
       <AboutMe />
       <Portfolio />
+      </main>
       <Footer />
       </>
     );
