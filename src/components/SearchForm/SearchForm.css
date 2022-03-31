@@ -35,6 +35,7 @@
 .film-search__input {
   min-height: 50px;
   width: 100%;
+  padding-left: 12px;
   border-radius: 50px;
   border: 1px solid #cecece;
 }
@@ -124,4 +125,18 @@ input[type="search"]::placeholder {
   line-height: 18px;
   padding-top: 15px;
   padding-left: 22px;
+}
+
+.film-search__errors {
+  display: flex;
+  flex-direction: row;
+}
+
+.film-search__error {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  color: rgba(238, 52, 101, 1);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
 }
