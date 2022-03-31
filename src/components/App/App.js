@@ -12,7 +12,6 @@ import { Movies } from "../Movies/Movies";
 import { SavedMovies } from "../SavedMovies/SavedMovies";
 import { Profile } from "../Profile/Profile";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
-import { isLoggedInContext } from "../../context/IsLoggedInContext";
 import { InfoToolTip } from "../Popup/Popup";
 
 export const App = () => {
@@ -74,7 +73,6 @@ export const App = () => {
         localStorage.setItem("token", res.token);
         setSuccseed(true);
         setIsInfoToolTipOpened(true);
-        console.log(res);
         onLogin(data)
       } else {
         setLoggedIn(false);
@@ -122,7 +120,6 @@ export const App = () => {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      {/* <isLoggedInContext.Provider value={loggedIn}> */}
         <div className="root">
           <Routes>
             <Route path="/" element={<Main loggedIn={loggedIn} />} />
@@ -148,7 +145,6 @@ export const App = () => {
             isSuccseed={isSuccseed}
           />
         </div>
-      {/* </isLoggedInContext.Provider> */}
     </CurrentUserContext.Provider>
   );
 };
