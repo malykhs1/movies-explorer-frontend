@@ -1,4 +1,4 @@
-.header {
+.main-header {
     background-color: rgba(92, 92, 92, 1);
     display: flex;
     align-items: center;
@@ -8,47 +8,47 @@
 }
 
 @media screen and (max-width: 850px) {
-    .header {
+    .main-header {
         padding-left: 30px;
         padding-right: 30px;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .header {
+    .main-header {
         padding-left: 14px;
         padding-right: 14px;
     }
 }
 
-.header_theme_white {
+.main-header_theme_white {
     background-color: white;
     padding-left: 70px;
     padding-right: 70px;
 }
 
 @media screen and (max-width: 850px) {
-    .header_theme_white {
+    .main-header_theme_white {
         padding-left: 30px;
         padding-right: 30px;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .header_theme_white {
+    .main-header_theme_white {
         padding-left: 14px;
         padding-right: 14px;
     }
 }
 
 
-.header__logo {
+.main-header__logo {
     width: 38px;
     height: 38px;
     padding-top: 18px;
 }
 
-.header__button_reg {
+.main-header__button_reg {
     color: rgba(255, 255, 255, 1);
     border: none;
     background-color: rgba(92, 92, 92, 1);
@@ -58,17 +58,17 @@
     text-decoration: none;
 }
 
-.header__button_reg:hover {
+.main-header__button_reg:hover {
     opacity: 0.8;
 }
 
 @media screen and (max-width: 450px) {
-    .header {
+    .main-header {
         font-size: 10px;
     }
 }
 
-.header__buttons {
+.main-header__buttons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,7 +77,7 @@
 
 
 
-.header__button_entry {
+.main-header__button_entry {
     text-decoration: none;
     border: none;
     padding: 8px 20px;
@@ -90,19 +90,19 @@
     line-height: 16px;
 }
 
-.header__button_entry:hover {
+.main-header__button_entry:hover {
     opacity: 0.8;
 }
 
 @media screen and (max-width: 450px) {
-    .header__button_entry {
+    .main-header__button_entry {
         padding: 5px 12px;
         font-size: 10px;
         margin-left: 14px;
     }
 }
 
-.header__button_account {
+.main-header__button_account {
     text-decoration: none;
     padding: 8px 20px;
     color: rgba(0, 0, 0, 1);
@@ -114,26 +114,19 @@
     line-height: 16px;
 }
 
-.header__button_account:hover {
+.main-header__button_account:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
-@media screen and (max-width: 769px) {
-    .header__button_account {
-        display: none;
-    }
-}
 
-
-
-.header__links {
+.main-header__links {
     display: flex;
     justify-content: center;
     padding-top: 28px;
 }
 
-.header__link {
+.main-header__link {
     color: rgba(0, 0, 0, 1);
     font-size: 13px;
     font-weight: 500;
@@ -142,12 +135,12 @@
     margin: 0;
 }
 
-.header__link:last-of-type {
+.main-header__link:last-of-type {
     margin-left: 16px;
 }
 
 @media screen and (max-width: 769px) {
-    .header__link {
+    .main-header__link {
         display: none;
         margin-right: 24px;
         font-size: 11px;

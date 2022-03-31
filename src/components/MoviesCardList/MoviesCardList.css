@@ -15,3 +15,10 @@
     cursor: pointer;
     opacity: 0.6;
 }
+
+.movies-card-list__text {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 13px;
+}
