@@ -6,11 +6,6 @@
   margin-top: 40px;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
-.project-item:hover {
-  opacity: 0.6;
-}
-
-
 
 .project-item__name {
   font-size: 30px;
@@ -18,8 +13,6 @@
   font-weight: 400;
   line-height: 60px;
   margin: 0;
-  text-decoration: none;
-  color: black;
 }
 
 @media screen and (max-width: 850px) {
@@ -50,3 +43,6 @@
   }
 }
 
+.project-item__picture:hover {
+    opacity: 0.6;
+}

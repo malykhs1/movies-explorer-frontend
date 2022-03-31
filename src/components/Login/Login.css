@@ -102,6 +102,7 @@
   border: 1px solid #cecece;
   border-radius: 8px;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .login__input:last-of-type {
@@ -136,11 +137,6 @@
 .login__errors {
     display: flex;
     flex-direction: row;
-    margin-bottom: 15px;  
-  }
-
-  .login__errors:last-of-type {
-    margin-bottom: 0;
   }
 
 .login__error {
