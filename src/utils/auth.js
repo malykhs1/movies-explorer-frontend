@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.malykhs-diplom.nomoredomains.rocks';
+export const BASE_URL = 'https://api.malykhs-diplom.nomoredomains.rocks';
 
 const checkResponse = (res) => {
   if (res.ok) {

@@ -78,5 +78,5 @@ class Api {
 }
 
 export const api = new Api({
-    url: 'http://api.malykhs-diplom.nomoredomains.rocks',
+    url: 'https://api.malykhs-diplom.nomoredomains.rocks',
 });
