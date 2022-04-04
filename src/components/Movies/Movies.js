@@ -7,6 +7,8 @@ import { Footer } from "../Footer/Footer";
 import { apiFilm } from "../../utils/MoviesApi";
 import { api } from "../../utils/api";
 import { Preloader } from "../Preloader/Loader";
+import { InfoToolTip } from "../Popup/Popup";
+
 
 export const Movies = () => {
 
@@ -28,6 +30,13 @@ export const Movies = () => {
 
   const [filmsTumbler, setFilmsTumbler] = useState(false);
   const [filmsInputSearch, setFilmsInputSearch] = useState('');
+
+  const [isSuccseed, setSuccseed] = useState(true);
+  const [isInfoToolTipOpened, setIsInfoToolTipOpened] = useState(false);
+
+  const closeAllPopups = () => {
+    setIsInfoToolTipOpened(false);
+  };
 
   async function handleGetMovies(inputSearch, tumbler) {
     // localStorage.setItem('filmsTumbler', false);
@@ -70,18 +79,7 @@ export const Movies = () => {
   async function handleGetMoviesTumbler(keyword, tumbler) {
     let filterDataShowed = [];
     let filterData = [];
-    // if (tumbler) {
-    //   setFilmsShowedWithTumbler(filmsShowed);
-    //   setFilmsWithTumbler(films);
-
-    //   filterDataShowed = filmsShowed.filter(({ duration }) => duration <= 40);
-    //   filterData = films.filter(({ duration }) => duration <= 40);
-    //   handleGetMovies(keyword, tumbler)
-    // } else {
-    //   filterDataShowed = filmsShowedWithTumbler;
-    //   filterData = filmsWithTumbler;
-    //   handleGetMovies(keyword, tumbler)
-    // }
+   
     handleGetMovies(keyword, tumbler)
 
     localStorage.setItem('films', JSON.stringify(filterDataShowed.concat(filterData)));
@@ -118,7 +116,9 @@ export const Movies = () => {
         const newSaved = await api.getLikeMovies(token);
         setFilmsSaved(newSaved);
       } catch (error) {
-        console.log(error);
+        setSuccseed(false)
+                setIsInfoToolTipOpened(true);
+                console.log(error);
       }
     } else {
       try {
@@ -127,8 +127,9 @@ export const Movies = () => {
         const newSaved = await api.getLikeMovies(token);
         setFilmsSaved(newSaved);
       } catch (error) {
-        console.log(error);
-      }
+        setSuccseed(false)
+        setIsInfoToolTipOpened(true);
+        console.log(error);      }
     }
   }
 
@@ -142,13 +143,15 @@ export const Movies = () => {
       })
       .catch((err) => console.log(err));
 
-    const localStorageFilms = localStorage.getItem('savedResults');
+    const localStorageSaveFilms = localStorage.getItem('savedResults');
+    const localStorageFilms = localStorage.getItem('films');  
 
-    if (localStorageFilms) {
-      const filterData = JSON.parse(localStorageFilms);
+    if (localStorageSaveFilms) {
+      const filterData = JSON.parse(localStorageSaveFilms);
+      const allFindFilms = JSON.parse(localStorageFilms);
       console.log(filterData);
       setFilmsShowed(filterData);
-      setFilms(filterData);
+      setFilms(allFindFilms.splice(10));
       setPreloader(false)
     }
     const localStorageFilmsInputSearch = localStorage.getItem('filmsInputSearch');
@@ -184,6 +187,14 @@ export const Movies = () => {
         />
       }
       <Footer />
+
+
+      <InfoToolTip
+            id="reg-pic"
+            isOpened={isInfoToolTipOpened}
+            onClose={closeAllPopups}
+            isSuccseed={isSuccseed}
+          />
     </>
   );
 };

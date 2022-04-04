@@ -5,13 +5,13 @@ import searchIcon from "../../images/search-icon.svg";
 export const SearchForm = ({ handleGetMovies, filmsTumbler, filmsInputSearch, handleGetMoviesTumbler }) => {
 
     const [inputSearch, setInputSearch] = useState("");
-    const [tumbler, setTumbler] = useState(false);
+    const [tumbler, setTumbler] = useState(null);
 
 
  
     const handleSubmit = async (e) => {
         e.preventDefault();
-        handleGetMovies(inputSearch, filmsTumbler)
+        handleGetMovies(inputSearch, tumbler)
       };
 
     const handleTumblerChange = () => {

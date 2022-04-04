@@ -1,11 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
-// import { isLoggedInContext } from "../../context/IsLoggedInContext";
-
 
 export const MainHeader = ({loggedIn}) => {
-  // const isLoggedIn = React.useContext(isLoggedInContext);
 
   return (
     <>

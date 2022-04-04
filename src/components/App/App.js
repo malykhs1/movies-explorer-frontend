@@ -25,17 +25,17 @@ export const App = () => {
   const [isInfoToolTipOpened, setIsInfoToolTipOpened] = useState(false);
   const [isSuccseed, setSuccseed] = useState(true);
 
-  
+
   //получаю данные пользователя
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-      api
-        .getUserInfo(token)
-        .then(() => {
-          setLoggedIn(true);
-        })
-        .catch((err) => console.log(err));
+    api
+      .getUserInfo(token)
+      .then(() => {
+        setLoggedIn(true);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
@@ -57,10 +57,13 @@ export const App = () => {
       .setUserInfo(name, email, token)
       .then((userData) => {
         setCurrentUser(userData);
+        setSuccseed(true);
         closeAllPopups();
       })
       .catch((error) => {
         console.log(error);
+        setSuccseed(false);
+        setIsInfoToolTipOpened(true);
       });
   };
 
@@ -110,20 +113,20 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Main loggedIn={loggedIn} />} />
             {!loggedIn
-            ? (<>
-            <Route path="/sign-in" element={<Login loggedIn={loggedIn} onLogin={onLogin} />} />
-            <Route path="/sign-up" element={<Register onRegister={onRegister} />} />
-            </>)
-            : null
+              ? (<>
+                <Route path="/sign-in" element={<Login loggedIn={loggedIn} onLogin={onLogin} />} />
+                <Route path="/sign-up" element={<Register onRegister={onRegister} />} />
+              </>)
+              : null
             }
-             <Route element={<ProtectedRoute />}>
-              <Route path="/movies" element={<Movies />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/movies" element={<Movies onClose={closeAllPopups} />} />
               <Route path="/saved-movies" element={<SavedMovies />} />
               <Route path="/profile" element={<Profile onUpdateUser={handleUpdateUser} onSignOut={onSignOut} />}
               />
               <Route path="*" element={<ErrorNotFound />} />
             </Route>
-            
+
           </Routes>
 
           <InfoToolTip

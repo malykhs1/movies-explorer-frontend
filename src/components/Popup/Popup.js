@@ -1,5 +1,4 @@
 import react from "react";
-import { useEffect } from "react";
 
 export const InfoToolTip = ({ id, isOpened, onClose, isSuccseed, formValid}) => {
   function closeByEsc(e) {

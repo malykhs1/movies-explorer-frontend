@@ -2,7 +2,6 @@ import React from "react";
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
 
-//если пользователь не залогинился, то нужно показать хэдэр, который № 1, если залогинился, то 2
 
 export const Header = () => {
   return (
