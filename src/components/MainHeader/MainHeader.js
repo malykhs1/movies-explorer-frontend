@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
-import { isLoggedInContext } from "../../context/IsLoggedInContext";
+// import { isLoggedInContext } from "../../context/IsLoggedInContext";
 
 
-export const MainHeader = () => {
-  const isLoggedIn = React.useContext(isLoggedInContext);
+export const MainHeader = ({loggedIn}) => {
+  // const isLoggedIn = React.useContext(isLoggedInContext);
 
   return (
     <>
-      {isLoggedIn && <header className="main-header">
+      {loggedIn && <header className="main-header">
         <Link to="/"><img src={logo} alt="Место" className="main-header__logo" /></Link>
         <div className="main-header__links">
           <Link to="/movies" className="main-header__link">
@@ -28,7 +28,7 @@ export const MainHeader = () => {
       }
 
       {
-        !isLoggedIn &&  <header className="main-header">
+        !loggedIn &&  <header className="main-header">
         <Link to="/"><img src={logo} alt="Место" className="main-header__logo" /></Link> 
         <div className="main-header__buttons">
         <Link to="sign-up" className="main-header__button_reg">

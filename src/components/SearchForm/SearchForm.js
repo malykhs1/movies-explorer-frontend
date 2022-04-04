@@ -7,10 +7,11 @@ export const SearchForm = ({ handleGetMovies, filmsTumbler, filmsInputSearch, ha
     const [inputSearch, setInputSearch] = useState("");
     const [tumbler, setTumbler] = useState(false);
 
+
  
     const handleSubmit = async (e) => {
         e.preventDefault();
-        handleGetMovies(inputSearch, tumbler)
+        handleGetMovies(inputSearch, filmsTumbler)
       };
 
     const handleTumblerChange = () => {

@@ -29,42 +29,32 @@ export const Movies = () => {
   const [filmsTumbler, setFilmsTumbler] = useState(false);
   const [filmsInputSearch, setFilmsInputSearch] = useState('');
 
-
-  const [filmsWithTumbler, setFilmsWithTumbler] = useState([]);
-  const [filmsShowedWithTumbler, setFilmsShowedWithTumbler] = useState([]);
-
-
   async function handleGetMovies(inputSearch, tumbler) {
-    setFilmsTumbler(false)
-    localStorage.setItem('filmsTumbler', false);
+    // localStorage.setItem('filmsTumbler', false);
     setPreloader(true);
     try {
       const token = localStorage.getItem('token')
       const data = await apiFilm.getFilmInfo(token);
       let filterData = data.filter(({ nameRU }) => nameRU.toLowerCase().includes(inputSearch.toLowerCase()));
-      if (tumbler) {
+      if (tumbler === true) {
         localStorage.setItem('films', JSON.stringify(filterData)); 
         localStorage.setItem('filmsInputSearch', inputSearch); 
         const shortFilms = filterData.filter(({ duration }) => duration <= 40);
         setFilmsShowed(shortFilms);
         const spliceData = shortFilms.splice(0, visible);
-
+        localStorage.setItem('savedResults',JSON.stringify(spliceData)); 
         setFilmsShowed(spliceData);
         setFilms(spliceData);
-
-        setFilmsShowedWithTumbler(spliceData);
-        setFilmsWithTumbler(filterData);
-
+       
       }
       else {
         localStorage.setItem('films', JSON.stringify(filterData)); 
         localStorage.setItem('filmsInputSearch', inputSearch);
         const spliceData = filterData.splice(0, visible);
+        localStorage.setItem('savedResults',JSON.stringify(spliceData)); 
         setFilmsShowed(spliceData);
         setFilms(filterData);
 
-        setFilmsShowedWithTumbler(spliceData);
-        setFilmsWithTumbler(filterData);
       }
     } catch (err) {
       setFilms([]);
@@ -78,21 +68,21 @@ export const Movies = () => {
 
 
   async function handleGetMoviesTumbler(keyword, tumbler) {
-    console.log(tumbler);
     let filterDataShowed = [];
     let filterData = [];
-    if (tumbler) {
-      setFilmsShowedWithTumbler(filmsShowed);
-      setFilmsWithTumbler(films);
+    // if (tumbler) {
+    //   setFilmsShowedWithTumbler(filmsShowed);
+    //   setFilmsWithTumbler(films);
 
-      filterDataShowed = filmsShowed.filter(({ duration }) => duration <= 40);
-      filterData = films.filter(({ duration }) => duration <= 40);
-      handleGetMovies(keyword, tumbler)
-    } else {
-      filterDataShowed = filmsShowedWithTumbler;
-      filterData = filmsWithTumbler;
-      handleGetMovies(keyword, tumbler)
-    }
+    //   filterDataShowed = filmsShowed.filter(({ duration }) => duration <= 40);
+    //   filterData = films.filter(({ duration }) => duration <= 40);
+    //   handleGetMovies(keyword, tumbler)
+    // } else {
+    //   filterDataShowed = filmsShowedWithTumbler;
+    //   filterData = filmsWithTumbler;
+    //   handleGetMovies(keyword, tumbler)
+    // }
+    handleGetMovies(keyword, tumbler)
 
     localStorage.setItem('films', JSON.stringify(filterDataShowed.concat(filterData)));
     localStorage.setItem('filmsTumbler', tumbler); 
@@ -104,13 +94,11 @@ export const Movies = () => {
   // добавляем количество фильмов при нажатии на кнопку
   const handleMore = () => {
     const newFilmsShowed = filmsShowed.concat(films.splice(0, visible));
-    //10 фильмов, которые сейчас отображатся
     setFilmsShowed(newFilmsShowed);
   }
 
   async function savedMoviesToggle(movie, fav) {
     if (fav) {
-      // console.log('film', film)
       const token = localStorage.getItem('token')
       const savedMovie = {
         country: movie.country || 'none',
@@ -154,17 +142,23 @@ export const Movies = () => {
       })
       .catch((err) => console.log(err));
 
-    const localStorageFilms = localStorage.getItem('films');
+    const localStorageFilms = localStorage.getItem('savedResults');
+
     if (localStorageFilms) {
       const filterData = JSON.parse(localStorageFilms);
-      setFilmsShowed(filterData.splice(0, visible));
+      console.log(filterData);
+      setFilmsShowed(filterData);
       setFilms(filterData);
       setPreloader(false)
     }
     const localStorageFilmsInputSearch = localStorage.getItem('filmsInputSearch');
+    const localStorageFilmsTumbler = localStorage.getItem('filmsTumbler');  
+    if (localStorageFilmsTumbler) {
+      setFilmsTumbler(localStorageFilmsTumbler === 'true');
+     }    
     if (localStorageFilmsInputSearch) {
       setFilmsInputSearch(localStorageFilmsInputSearch);
-    }
+    }    
   }, []);
 
   return (

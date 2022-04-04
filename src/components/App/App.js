@@ -9,7 +9,6 @@ import { Login } from "../Login/Login";
 import { ErrorNotFound } from "../NotFoundError/NotFoundError";
 import { Main } from "../Main/Main";
 import { Movies } from "../Movies/Movies";
-import { Navigation } from "../Navigation/Navigation";
 import { SavedMovies } from "../SavedMovies/SavedMovies";
 import { Profile } from "../Profile/Profile";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
@@ -19,7 +18,7 @@ import { InfoToolTip } from "../Popup/Popup";
 export const App = () => {
   let navigate = useNavigate();
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
 
   //поп-ап с подсказкой
@@ -30,16 +29,27 @@ export const App = () => {
   //получаю данные пользователя
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+
       api
         .getUserInfo(token)
-        .then((userData) => {
+        .then(() => {
           setLoggedIn(true);
-          setCurrentUser(userData);
+        })
+        .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (loggedIn) {
+      api.getUserInfo(token)
+        .then((user) => {
+          setLoggedIn(true)
+          setCurrentUser(user);
         })
         .catch((err) => console.log(err));
     }
-  }, [loggedIn]);
+  }, [loggedIn])
+
 
   const handleUpdateUser = ({ name, email }) => {
     const token = localStorage.getItem('token');
@@ -98,23 +108,22 @@ export const App = () => {
       <isLoggedInContext.Provider value={loggedIn}>
         <div className="root">
           <Routes>
-          <Route path="*" element={<ErrorNotFound />} />
             <Route path="/" element={<Main loggedIn={loggedIn} />} />
-            <Route path="/sign-in" element={<Login onLogin={onLogin} />} />
-            <Route
-              path="/sign-up"
-              element={<Register onRegister={onRegister} />}
-            />
-
-            <Route element={<ProtectedRoute loggedIn={loggedIn} />}>
+            {!loggedIn
+            ? (<>
+            <Route path="/sign-in" element={<Login loggedIn={loggedIn} onLogin={onLogin} />} />
+            <Route path="/sign-up" element={<Register onRegister={onRegister} />} />
+            </>)
+            : null
+            }
+             <Route element={<ProtectedRoute />}>
               <Route path="/movies" element={<Movies />} />
               <Route path="/saved-movies" element={<SavedMovies />} />
-              <Route path="/profile" element={<Profile 
-              onUpdateUser={handleUpdateUser}
-                  onSignOut={onSignOut} />}
+              <Route path="/profile" element={<Profile onUpdateUser={handleUpdateUser} onSignOut={onSignOut} />}
               />
-              <Route path="nav-test" element={<Navigation />} />
+              <Route path="*" element={<ErrorNotFound />} />
             </Route>
+            
           </Routes>
 
           <InfoToolTip

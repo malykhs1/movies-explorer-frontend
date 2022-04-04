@@ -7,10 +7,10 @@ import { Techs } from "../Techs/Techs";
 import { AboutMe } from "../AboutMe/AboutMe";
 import { Portfolio } from "../Portfolio/Portfolio";
 
-export const Main = () => {
+export const Main = ({loggedIn}) => {
     return (
       <>
-      <MainHeader  />
+      <MainHeader loggedIn={loggedIn} />
       <Promo />
       <NavTab />
       <AboutProject />
