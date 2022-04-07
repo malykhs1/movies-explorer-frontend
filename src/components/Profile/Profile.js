@@ -3,7 +3,7 @@ import { Navigation } from "../Navigation/Navigation";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 import { Header } from "../Header/Header";
 
-export const Profile = ({ onEdit, onSignOut, onUpdateUser }) => {
+export const Profile = ({ onSignOut, onUpdateUser }) => {
 
   const userInfo = React.useContext(CurrentUserContext);
   //состояние для редактирования профиля

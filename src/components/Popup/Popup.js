@@ -1,6 +1,10 @@
 import react from "react";
+import { useLocation } from "react-router-dom";
+
 
 export const InfoToolTip = ({ id, isOpened, onClose, isSuccseed, formValid}) => {
+  const location = useLocation();
+
   function closeByEsc(e) {
     if (e.key === "Escape") {
       onClose && onClose();
@@ -19,6 +23,9 @@ export const InfoToolTip = ({ id, isOpened, onClose, isSuccseed, formValid}) => 
     let text;
     if (isSuccseed === true) {
       text = "Вы успешно зарегистрировались";
+    }
+    if (isSuccseed === true && location.pathname === '/profile' ) {
+      text = "Данные профиля успешно отредактированы!";
     }
     if (isSuccseed === false) {
       text = "Что-то пошло не так. Попробуйте еще раз";

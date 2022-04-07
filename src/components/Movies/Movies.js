@@ -20,6 +20,8 @@ export const Movies = () => {
   const [filmsShowed, setFilmsShowed] = useState(null);
   //залайканные фильмы
   const [filmsSaved, setFilmsSaved] = useState(null);
+  //для отрисовки
+  const [filmsButton, setFilmsButton] = useState(null)
 
   //устанавливаем кол-вол карточек для отображения
   const [visible, setVisible] = useState(10);
@@ -49,16 +51,20 @@ export const Movies = () => {
         localStorage.setItem('films', JSON.stringify(filterData)); 
         localStorage.setItem('filmsInputSearch', inputSearch); 
         const shortFilms = filterData.filter(({ duration }) => duration <= 40);
+        setFilmsButton(shortFilms) 
         setFilmsShowed(shortFilms);
         const spliceData = shortFilms.splice(0, visible);
         localStorage.setItem('savedResults',JSON.stringify(spliceData)); 
         setFilmsShowed(spliceData);
         setFilms(spliceData);
+        console.log(filmsShowed);
+        console.log(films);
        
       }
       else {
         localStorage.setItem('films', JSON.stringify(filterData)); 
         localStorage.setItem('filmsInputSearch', inputSearch);
+        setFilmsButton(filterData) 
         const spliceData = filterData.splice(0, visible);
         localStorage.setItem('savedResults',JSON.stringify(spliceData)); 
         setFilmsShowed(spliceData);
@@ -149,9 +155,11 @@ export const Movies = () => {
     if (localStorageSaveFilms) {
       const filterData = JSON.parse(localStorageSaveFilms);
       const allFindFilms = JSON.parse(localStorageFilms);
-      console.log(filterData);
+      setFilmsButton(filterData)
       setFilmsShowed(filterData);
       setFilms(allFindFilms.splice(10));
+      console.log(films);
+      console.log(filmsShowed);
       setPreloader(false)
     }
     const localStorageFilmsInputSearch = localStorage.getItem('filmsInputSearch');
@@ -181,6 +189,7 @@ export const Movies = () => {
         <MoviesCardList
           handleMore={handleMore}
           filmsRemains={films}
+          filmsButton={filmsButton}
           films={filmsShowed}
           savedMoviesToggle={savedMoviesToggle}
           filmsSaved={filmsSaved}

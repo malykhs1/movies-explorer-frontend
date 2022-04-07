@@ -4,7 +4,9 @@ import { MoviesCard } from "../MoviesCard/MoviesCard";
 import { useLocation } from "react-router-dom";
 
 
-export const MoviesCardList = ({ films, savedMoviesToggle, filmsSaved, filmsRemains, handleMore, handleDeleteFilm }) => {
+export const MoviesCardList = ({ films, savedMoviesToggle, filmsSaved, filmsRemains, handleMore, handleDeleteFilm, filmsButton }) => {
+
+
 
     const location = useLocation();
 
@@ -25,7 +27,7 @@ export const MoviesCardList = ({ films, savedMoviesToggle, filmsSaved, filmsRema
                     </div> : <div className="movies-card-list__text">Ничего не найдено</div>
                 }
                 {
-                    filmsRemains.length > 9 && location.pathname !== '/saved-movies' && 
+                     filmsRemains.length > 9 && location.pathname !== '/saved-movies' && filmsButton.length > 9 &&
                         <button onClick={handleMore} className="movies-card-list__button-more-cards">Еще</button>
                 }
             </section>
