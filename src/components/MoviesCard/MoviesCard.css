@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     background: rgba(249, 249, 249, 1);
-    margin: 40px 70px;
+    margin: 40px 0px;
 }
 
 .card:first-of-type {
@@ -15,13 +15,13 @@
 
 @media screen and (max-width: 850px) {
     .card {
-        margin: 40px 30px;
+        margin: 40px 0px;
     }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
     .card {
-        margin: 20px 10px;
+        margin: 20px 0px;
         flex-direction: column-reverse;
     }
 }
@@ -32,7 +32,7 @@
     margin-left: 22px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
     .card__info {
         margin-top: 14px;
         flex-direction: row;
@@ -43,16 +43,26 @@
 }
 
 .card__title {
+    max-width: 350px;
+    max-height: 22px;
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
     margin: 0;
     margin-top: 22px;
     margin-bottom: 12px;
+	overflow: hidden;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
     .card__title {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card__title {
+        font-size: 12px;
         margin: 0;
         margin-bottom: 8px;
     }
@@ -66,7 +76,7 @@
     margin-bottom: 30px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 500px) {
     .card__duration {
         margin-bottom: 12px;
     }
@@ -76,16 +86,22 @@
     border: none;
     width: 14px;
     height: 12px;
+    box-sizing: border-box;
+    box-shadow: none;
+    padding: 0;
 }
 
 .card__like_active {
-    background: rgba(249, 249, 249, 1);
-    background-image: url(../../images/like_active.svg);
+    background: url(../../images/like_active.svg) no-repeat center;
+
 }
 
 .card__like_unactive {
-    background: rgba(249, 249, 249, 1);
-    background-image: url(../../images/like_unactive.svg);
+    background: url(../../images/like_unactive.svg) no-repeat center;
+}
+
+.card__like_delete {
+    background: url(../../images/delete-card.svg) no-repeat center;
 }
 
 .card__like:hover {
@@ -93,6 +109,17 @@
 }
 
 .card__poster {
-    max-width: 100%;
+    width: 220px;
+    height: 122px;
     padding: 6px;
+}
+
+@media screen and (max-width: 500px) {
+    .card__poster {
+        padding: 0;
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 168px;
+    }
 }

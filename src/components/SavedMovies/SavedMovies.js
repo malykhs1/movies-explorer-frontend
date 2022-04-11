@@ -1,58 +1,130 @@
+import React, { useEffect, useState } from "react";
+import { Header } from "../Header/Header";
 import { SearchForm } from "../SearchForm/SearchForm";
 import { Navigation } from "../Navigation/Navigation";
-import cardPoster from "../../images/33-dis.png";
-import deleteCardButton from "../../images/delete-card.svg";
-import logo from "../../images/logo.svg";
-import { Link } from "react-router-dom";
+import { MoviesCardList } from "../MoviesCardList/MoviesCadList";
+import { Preloader } from "../Preloader/Loader";
+import { Footer } from "../Footer/Footer";
+import { api } from "../../utils/api";
 
 export const SavedMovies = () => {
+
+  const [films, setFilms] = useState(null);
+  const [preloader, setPreloader] = useState(false);
+  const [filmsTumbler, setFilmsTumbler] = useState(false);
+  const [filmsInputSearch, setFilmsInputSearch] = useState('');
+  const [filmsShowed, setFilmsShowed] = useState([]);
+
+  const [filmsWithTumbler, setFilmsWithTumbler] = useState([]);
+  const [filmsShowedWithTumbler, setFilmsShowedWithTumbler] = useState([]);
+
+  async function handleGetMovies(inputSearch, tumbler) {
+    setPreloader(true);
+
+    try {
+      const data = films;
+      let filterData = data.filter(({ nameRU }) => nameRU.toLowerCase().includes(inputSearch.toLowerCase()));
+      if (tumbler)
+        filterData.filter(({ duration }) => duration <= 40);
+      setFilmsShowed(filterData);
+      if (inputSearch) {
+        localStorage.setItem('savedFilms', JSON.stringify(filterData)); // сохраняем в локалсторедж
+        localStorage.setItem('savedFilmsTumbler', tumbler); // сохраняем в локалсторедж состояние тумблера
+        localStorage.setItem('savedFilmsInputSearch', inputSearch); // сохраняем в локалсторедж то что ввели в поиск
+      } else {
+        localStorage.removeItem('savedFilms');
+        localStorage.removeItem('savedFilmsTumbler');
+        localStorage.removeItem('savedFilmsInputSearch');
+      }
+    } catch {
+
+      setFilms([]);
+      localStorage.removeItem('savedFilms');
+      localStorage.removeItem('savedFilmsTumbler');
+      localStorage.removeItem('savedFilmsInputSearch');
+    } finally {
+      setPreloader(false)
+    }
+  }
+
+   
+  async function handleGetMoviesTumbler(inputSearch, tumbler) {
+    let filterDataShowed = [];
+    let filterData = [];
+    if (tumbler) {
+      setFilmsShowedWithTumbler(filmsShowed);
+      setFilmsWithTumbler(films);
+
+      filterDataShowed = filmsShowed.filter(({ duration }) => duration <= 40);
+      filterData = films.filter(({ duration }) => duration <= 40);
+
+      handleGetMovies(inputSearch, tumbler)
+
+    } else {
+      filterDataShowed = filmsShowedWithTumbler;
+      filterData = filmsWithTumbler;
+      handleGetMovies(inputSearch, tumbler)
+    }
+
+    localStorage.setItem('savedFilmsTumbler', tumbler); // сохраняем в локалсторедж состояние тумблера
+    handleGetMovies(inputSearch, tumbler)
+
+    setFilmsShowed(filterDataShowed);
+    setFilms(filterData)
+
+  }
+
+  async function savedMoviesToggle(film, fav) {
+    if (!fav) {
+      try {
+        const token = localStorage.getItem('token');
+        await api.removeNewCard(film._id, token)
+        const newFilms = await api.getLikeMovies(token);
+        setFilmsShowed(newFilms);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+
+
+  useEffect(() => {
+    const localStorageFilms = localStorage.getItem('savedFilms')
+    if (localStorageFilms) {
+      setFilms(JSON.parse(localStorageFilms));
+    }
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    api.getLikeMovies(token)
+      .then((data) => {
+        setFilms(data);
+        setFilmsShowed(data);
+      })
+      .catch((err) => console.log(err));
+  }, [])
+
   return (
     <>
-      <header className="header header_theme_white">
-      <Link to="/"><img src={logo} alt="Место" className="header__logo" /></Link> 
-        <div className="header__links">
-          <Link to="/movies" className="header__link">
-            Фильмы
-          </Link>
-          <Link to="/saved-movies" className="header__link">
-            Сохраненные фильмы
-          </Link>
-        </div>
-        <div className="header__buttons">
-          <Link to="/profile" className="header__button_account">
-            Аккаунт
-          </Link>
-        </div>
-      </header>
-      <main>
-      < Navigation />
-      <SearchForm />
-      <div className="card">
-        <div className="card__info">
-          <div className="card__text-info">
-            <h2 className="card__title">33 слова о дизайне</h2>
-            <p className="card__duration">1ч. 42м.</p>
-          </div>
-          <div className="card__like-container">
-            <img className="card__like" src={deleteCardButton} alt="Картинка фильма" />
-          </div>
-        </div>
-        <img className="card__poster" src={cardPoster} alt="Обложка фильма" />
-      </div>
-      </main>
-      <footer className="footer_position_movie ">
-        <p className="footer__project-info">Учебный проект Яндекс.Практикум х BeatFilm.</p>
-        <nav className="footer__row">
-          <p className="footer__copyright">
-            &copy; {new Date().getFullYear()} Сделал Александр Малых
-          </p>
-          <ul className="footer__row-links">
-            <li><a className="footer__row-link" href="#">Яндекс.Практикум</a></li>
-            <li><a className="footer__row-link" href="#">Github</a></li>
-            <li><a className="footer__row-link" href="#">Facebook</a></li>
-          </ul>
-        </nav>
-      </footer>
+      <Header />
+      <Navigation />
+      <SearchForm
+        handleGetMovies={handleGetMovies}
+        filmsTumbler={filmsTumbler}
+        filmsInputSearch={filmsInputSearch}
+        handleGetMoviesTumbler={handleGetMoviesTumbler}
+      />
+      {preloader && <Preloader />}
+
+      {!preloader && films !== null &&
+        <MoviesCardList
+          filmsRemains={[]}
+          savedMoviesToggle={savedMoviesToggle}
+          films={filmsShowed}
+        />
+      }
+      <Footer />
     </>
   );
 };
