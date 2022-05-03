@@ -41,10 +41,10 @@ export const Movies = () => {
   };
 
   async function handleGetMovies(inputSearch, tumbler) {
-    // localStorage.setItem('filmsTumbler', false);
     setPreloader(true);
     try {
       const token = localStorage.getItem('token')
+      const dataLocal = localStorage.getItem(JSON.stringify('films'));
       const data = await apiFilm.getFilmInfo(token);
       let filterData = data.filter(({ nameRU }) => nameRU.toLowerCase().includes(inputSearch.toLowerCase()));
       if (tumbler === true) {
@@ -56,10 +56,7 @@ export const Movies = () => {
         const spliceData = shortFilms.splice(0, visible);
         localStorage.setItem('savedResults',JSON.stringify(spliceData)); 
         setFilmsShowed(spliceData);
-        setFilms(spliceData);
-        console.log(filmsShowed);
-        console.log(films);
-       
+       setFilms(spliceData);       
       }
       else {
         localStorage.setItem('films', JSON.stringify(filterData)); 
@@ -158,8 +155,6 @@ export const Movies = () => {
       setFilmsButton(filterData)
       setFilmsShowed(filterData);
       setFilms(allFindFilms.splice(10));
-      console.log(films);
-      console.log(filmsShowed);
       setPreloader(false)
     }
     const localStorageFilmsInputSearch = localStorage.getItem('filmsInputSearch');

@@ -35,16 +35,16 @@ export const Login = ({ onLogin }) => {
   return (
     <section className="login__container">
       <Link to="/"><img src={logo} alt="Место" className="login__logo" /></Link>
-      <h2 className="login__title">Рады вас видеть!</h2>
+      <h2 className="login__title">We are glad to see you!</h2>
       <form className="login__form" onSubmit={handleSubmit}>
         <label className="login__label" htmlFor="email">Email</label>
         <input
           {...register("email", {
-            required: "Поле обязательно к заполнению! ",
+            required: "The field is required!",
             onChange: (e) => setEmail(e.target.value),
             pattern: { 
               value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              message: "Введите реальный адрес электронной почты!"
+              message: "Please enter a valid email address!"
             },
           })}
           value={email}
@@ -56,14 +56,14 @@ export const Login = ({ onLogin }) => {
         <div className="login__errors">
         {errors?.email && <p className="login__error">{errors?.email?.message || "Error"}</p>}
         </div>
-        <label className="login__label" htmlFor="password">Пароль</label>
+        <label className="login__label" htmlFor="password">Password</label>
         <input
            {...register("password", {
             onChange: (e) => setPassword(e.target.value),
-            required: "Поле обязательно к заполнению!",
+            required: "The field is required!",
             minLength: {
               value: 8,
-              message: "Минимум 8 символов",
+              message: "Minimum 8 characters",
             },
           })}
           value={password}
@@ -78,13 +78,13 @@ export const Login = ({ onLogin }) => {
           </div>
         </div>
         <button disabled={!isValid} type="submit" className="login__button">
-          Войти
+          Log in
         </button>
       </form>
       <div className="login__signin">
-        <p className="login__register-link"> Еще не зарегистрированы?</p>
-        <Link to="wwww.google.com" className="login__register-link">
-          Регистрация
+        <p className="login__register-link">Not registered yet?</p>
+        <Link to="/sign-up" className="login__register-link">
+          Register
         </Link>
       </div>
     </section>

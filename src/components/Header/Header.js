@@ -9,15 +9,15 @@ export const Header = () => {
       <Link to="/"><img src={logo} alt="Место" className="header__logo" /></Link> 
         <div className="header__links">
           <Link to="/movies" className="header__link">
-            Фильмы
+            Films
           </Link>
           <Link to="/saved-movies" className="header__link" href="/saved-movies">
-            Сохраненные фильмы
+            Saved films
           </Link>
         </div>
         <div className="header__buttons">
           <Link to="/profile" className="header__button_account">
-            Аккаунт
+            Account
           </Link>
         </div>
       </header>

@@ -5,13 +5,13 @@ export const NavTab = () => {
     <nav className="navigation-tab">
       <div className="navigation-tab__links">
       <a className="navigation-tab__link" href="#about-project">
-         О проекте
+         About project
         </a>
         <a className="navigation-tab__link" href="#techs">
-          Технологии
+          Technologies
         </a>
         <a className="navigation-tab__link" href="#about-me">
-          Студент
+          About me
         </a>
       </div>
     </nav>

@@ -133,6 +133,11 @@
   }
 }
 
+.login__button:disabled {
+  background: rgba(43, 224, 128, 0.5);
+}
+
+
 .login__errors {
     display: flex;
     flex-direction: row;

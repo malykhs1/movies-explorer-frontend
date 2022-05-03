@@ -11,10 +11,10 @@ export const Navigation = () => {
           <span></span>
         </label>
         <ul className="menu__box">
-          <li><Link className="menu__item" to="/">Главная</Link></li>
-          <li><Link className="menu__item" to="/movies">Фильмы</Link></li>
-          <li><Link className="menu__item" to="/saved-movies">Сохраненные фильмы</Link></li>
-          <li><Link className="menu__btn-account" to="/profile">Аккаунт</Link></li>
+          <li><Link className="menu__item" to="/">Main</Link></li>
+          <li><Link className="menu__item" to="/movies">Films</Link></li>
+          <li><Link className="menu__item" to="/saved-movies">Saved films</Link></li>
+          <li><Link className="menu__btn-account" to="/profile">Account</Link></li>
         </ul>
       </div>
     </>

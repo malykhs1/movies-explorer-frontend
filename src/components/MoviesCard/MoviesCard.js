@@ -38,7 +38,7 @@ export const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
        const getTime = (mins) => {
         let hours = Math.trunc(mins / 60);
         let minutes = mins % 60;
-        return hours + `ч ` + minutes + `м`;
+        return hours + `h ` + minutes + `min`;
        }
 
   
@@ -47,7 +47,7 @@ export const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
             <div className="card">
                 <div className="card__info">
                     <div className="card__text-info">
-                        <h2 className="card__title">{film.nameRU}</h2>
+                        <h2 className="card__title">{film.nameEN}</h2>
                         <p className="card__duration">{getTime(film.duration)}</p>
                     </div>
                     <div className="card__like-container">

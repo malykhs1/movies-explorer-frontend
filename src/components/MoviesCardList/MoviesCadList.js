@@ -24,11 +24,11 @@ export const MoviesCardList = ({ films, savedMoviesToggle, filmsSaved, filmsRema
                                 handleDeleteFilm={handleDeleteFilm}
                             />
                         ))}
-                    </div> : <div className="movies-card-list__text">Ничего не найдено</div>
+                    </div> : <div className="movies-card-list__text">Not found</div>
                 }
                 {
                      filmsRemains.length > 9 && location.pathname !== '/saved-movies' && filmsButton.length > 9 &&
-                        <button onClick={handleMore} className="movies-card-list__button-more-cards">Еще</button>
+                        <button onClick={handleMore} className="movies-card-list__button-more-cards">More</button>
                 }
             </section>
 

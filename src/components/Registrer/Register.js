@@ -35,16 +35,16 @@ export const Register = ({ onRegister }) => {
   return (
     <section className="register__container">
       <Link to="/"><img src={logo} alt="Место" className="header__logo" /></Link>
-      <h2 className="register__title">Добро пожаловать!</h2>
+      <h2 className="register__title">Welcome</h2>
       <form className="register__form" onSubmit={handleSubmit}>
-        <label className="register__label" htmlFor="name">Имя</label>
+        <label className="register__label" htmlFor="name">Name</label>
         <input
           {...register("name", {
-            required: "Поле обязательно к заполнению! ",
+            required: "The field is required!",
             onChange: (e) => setName(e.target.value),
             minLength: {
               value: 3,
-              message: "Минимум 3 символа",
+              message: "Minimum 3 characters",
             },
           })}
           value={name}
@@ -58,11 +58,11 @@ export const Register = ({ onRegister }) => {
         <label className="register__label" htmlFor="email">Email</label>
         <input
           {...register("email", {
-            required: "Поле обязательно к заполнению! ",
+            required: "The field is required!",
             onChange: (e) => setEmail(e.target.value),
             pattern: { 
               value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              message: "Введите реальный адрес электронной почты!"
+              message: "Please enter a valid email address!"
             },
           })}
           value={email}
@@ -73,14 +73,14 @@ export const Register = ({ onRegister }) => {
         <div className="register__errors">
             {errors?.email && <p className="register__error">{errors?.email?.message || "Error"}</p>}
         </div>
-        <label className="register__label" htmlFor="password">Пароль</label>
+        <label className="register__label" htmlFor="password">Password</label>
         <input
           {...register("password", {
-            required: "Поле обязательно к заполнению! ",
+            required: "The field is required!",
             onChange: (e) => setPassword(e.target.value),
             minLength: {
               value: 8,
-              message: "Минимум 8 символов",
+              message: "Minimum 8 characters",
             },
           })}
           value={password}
@@ -92,13 +92,13 @@ export const Register = ({ onRegister }) => {
             {errors?.password && <p className="register__error">{errors?.password?.message || "Error"}</p>}
           </div>
         <button type="submit" disabled={!isValid} className="register__button">
-          Зарегистрироваться
+          Register
         </button>
       </form>
       <div className="register__signin">
-        <p className="register__login-link"> Уже зарегистрированы?</p>
+        <p className="register__login-link"> Already registered?</p>
         <Link to="/sign-in" className="register__login-link">
-          Войти
+          Log in 
         </Link>
       </div>
     </section>

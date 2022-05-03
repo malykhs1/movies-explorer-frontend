@@ -22,13 +22,13 @@ export const InfoToolTip = ({ id, isOpened, onClose, isSuccseed, formValid}) => 
   function changeTipText() {
     let text;
     if (isSuccseed === true) {
-      text = "Вы успешно зарегистрировались";
+      text = "You have successfully registered.";
     }
     if (isSuccseed === true && location.pathname === '/profile' ) {
-      text = "Данные профиля успешно отредактированы!";
+      text = "Profile data edited successfully!";
     }
     if (isSuccseed === false) {
-      text = "Что-то пошло не так. Попробуйте еще раз";
+      text = "Something is wrong. Try again.";
     }
     return text;
   }
@@ -40,7 +40,7 @@ export const InfoToolTip = ({ id, isOpened, onClose, isSuccseed, formValid}) => 
           onClick={onClose}
           type="button"
           className="popup__close-button"
-          aria-label="Закрыть попап"
+          aria-label="Close popup"
           disabled={formValid}
         ></button>
         <div
