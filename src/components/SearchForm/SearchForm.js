@@ -42,15 +42,15 @@ export const SearchForm = ({ handleGetMovies, filmsTumbler, filmsInputSearch, ha
                             className="film-search__input"
                             name="filmSearch"
                             type="search"
-                            placeholder="Фильм"
+                            placeholder="Film"
                             required={true}
                         />
                         <button className="film-search__button">
-                            <img className="film-search__button-pic" src={searchIcon} alt="Поиск" />
+                            <img className="film-search__button-pic" src={searchIcon} alt="Search" />
                         </button>
                     </form>
                     <div className="film-search__checkbox">
-                        <p className="film-search__checkbox-tittle">Короткометражки</p>
+                        <p className="film-search__checkbox-tittle">Short films</p>
                         <input className="film-search__checkbox-switcher"
                             type="checkbox"
                             value={tumbler}

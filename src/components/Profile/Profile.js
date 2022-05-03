@@ -41,10 +41,10 @@ export const Profile = ({ onSignOut, onUpdateUser }) => {
       <Navigation />
       <form className="profile" onSubmit={handleSubmit}>
         <div className="profile__container">
-          <h2 className="profile__title">Привет, {userInfo.name}</h2>
+          <h2 className="profile__title">Hi, {userInfo.name}</h2>
           <div className="profile__user-data">
             <div className="profile__name-container">
-              <label className="profile__name">Имя</label>
+              <label className="profile__name">Name</label>
               {
                 editMode
                   ? (<input type="text" name="name" className="profile__input" onChange={handleNameChange} value={name} required />)
@@ -64,16 +64,16 @@ export const Profile = ({ onSignOut, onUpdateUser }) => {
               ? (
                 <>
                 <p className="profile__error"></p>
-                <button type="submit" className="profile__button-submit" disabled={!(name !== userInfo.name || email !== userInfo.email)}>Сохранить</button>
+                <button type="submit" className="profile__button-submit" disabled={!(name !== userInfo.name || email !== userInfo.email)}>Save</button>
                 </>
               )
               : (
                 <>
                 <button className="profile__register-link" onClick={() => setEditMode(true)} >
-            Редактировать
+            Edit
           </button>
           <button onClick={onSignOut} className="profile__button-exit">
-            Выйти из аккауна
+            Log out
           </button>
                 </>  
           )}

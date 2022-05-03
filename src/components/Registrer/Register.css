@@ -133,7 +133,6 @@
 }
 
 .register__button:disabled {
-  cursor: none;
   background: rgba(43, 224, 128, 0.5);
 }
 
