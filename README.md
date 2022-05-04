@@ -4,7 +4,7 @@
 
 ---
 
- ### ⚙️  Стек технологий:
+ ### ⚙️  Tech stack:
 JavaScript:classes, fetch, promises, api.  
 <img src="https://img.icons8.com/color/38/000000/javascript--v1.png"/>
 
@@ -39,5 +39,5 @@ Figma.
 
 ---
 
-#### Спасибо за внимание!  
+#### Thank you for visiting!  
 _icons by icons8.com_
