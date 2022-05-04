@@ -1,22 +1,17 @@
 # <p align="center">Mesto обмена фотографиями</p>
 
-<p align="center">Проект <a href="https://malykhs.nomoredomains.rocks/">приложения</a> для обмена фотокарточками</p>
-
----
-
-### Пару слов о репозитории
-Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения. Бэкенд расположен в директории `backend/`, а фронтенд - в `frontend/`.
+<p align="center"><a href="https://malykhs-diplom.nomoredomains.work/">My personal website</a> and movie search app</p>
 
 ---
 
  ### ⚙️  Стек технологий:
-JavaScript: ООП, classes, fetch, promises, api.  
+JavaScript:classes, fetch, promises, api.  
 <img src="https://img.icons8.com/color/38/000000/javascript--v1.png"/>
 
 React.
  <img src="https://img.icons8.com/ultraviolet/38/000000/react--v1.png"/>
 
-HTML. Семантическая вёрстка.  
+HTML.  
  <img src="https://img.icons8.com/color/36/000000/html-5--v1.png"/>  
  
  CSS. Flex, grid, @media.  
@@ -35,11 +30,12 @@ Figma.
 
 ### ![Functional](https://img.icons8.com/ios-glyphs/25/000000/mechanistic-analysis.png) Функциональные возможности проекта:
 
-- адаптивная вёрстка для разрешений экрана от 320 px;
-- загрузка с сервера данных пользователя и карточек мест;
-- попапы с функцией редактирования профиля и просмотра карточек;
-- попапы можно закрывать по клику вне формы и через esc;
-- upgrade soon
+- loading user data and photos from the server; 
+- editing data in the user profile;
+- registering and authorizing the user through localStorage;
+- saving data to localStorage;
+- the ability to add films into favorite;
+- opening / closing modal windows.
 
 ---
 
