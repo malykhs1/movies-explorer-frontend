@@ -1,0 +1,24 @@
+.movies-card-list__button-more-cards {
+    width: 100%;
+    padding-top: 11px;
+    padding-bottom: 9px;
+    color: black;
+    border: none;
+    background: rgba(249, 249, 249, 1);
+    margin-top: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.movies-card-list__button-more-cards:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.movies-card-list__text {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 13px;
+}

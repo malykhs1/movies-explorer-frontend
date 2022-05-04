@@ -1,0 +1,133 @@
+/* скрываем чекбокс */
+#menu__toggle {
+  opacity: 0;
+}
+
+/* стилизуем кнопку */
+.menu__btn {
+  display: none;
+  /* используем flex для центрирования содержимого */
+  align-items: center;
+  /* центрируем содержимое кнопки */
+  position: fixed;
+  top: 22px;
+  right: 16px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+@media screen and (max-width: 769px) {
+  .menu__btn {
+    display: flex;
+    background: none;
+  }
+}
+
+.menu__btn-account {
+  padding: 8px 20px;
+  background: rgba(249, 249, 249, 1);
+  margin: auto;
+  margin-top: 629px;
+  border-radius: 20px;
+  width: 100px;
+  text-decoration: none;
+  color: black;
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+@media screen and (max-width: 769px) {
+  .menu__btn-account {
+    margin-top: 444px;
+  }
+}
+
+/* добавляем "гамбургер" */
+.menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+}
+
+.menu__btn>span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu__btn>span::after {
+  content: '';
+  top: 8px;
+}
+
+/* контейнер меню */
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  right: -100%;
+  width: 520px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  text-align: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 1);
+  z-index: 2;
+}
+
+@media screen and (max-width: 769px) {
+  .menu__box {
+    max-width: 520px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .menu__box {
+    width: 100%;
+  }
+}
+
+/* элементы меню */
+.menu__item {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 22px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+
+.menu__item:hover {
+  background-color: #CFD8DC;
+}
+
+#menu__toggle:checked~.menu__btn>span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked~.menu__btn>span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked~.menu__btn>span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked~.menu__box {
+  visibility: visible;
+  right: 0;
+}

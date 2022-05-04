@@ -1,0 +1,124 @@
+.biography_place {
+    margin-top: 66px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 740px) {
+    .biography_place {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
+.biography_place_text__name {
+    margin: 0;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 58px;
+}
+
+@media screen and (max-width: 900px) {
+    .biography_place_text__name {
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .biography_place_text__name {
+        text-align: center;
+    }
+}
+
+.biography_place_text__job {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .biography_place_text__job {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .biography_place_text__job {
+        text-align: center;
+    }
+}
+
+.biography_place_text__bio-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    max-width: 600px;
+}
+
+@media screen and (max-width: 900px) {
+    .biography_place_text__bio-text {
+        max-width: 364px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .biography_place_text__bio-text {
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 16px;
+        text-align: center;
+    }
+}
+
+.biography_place_text__links {
+    margin-top: 75px;
+    align-items: center;
+}
+
+@media screen and (max-width: 740px) {
+    .biography_place_text__links {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+}
+
+.biography_place__link {
+    margin-right: 20px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1);
+}
+
+@media screen and (max-width: 900px) {
+    .biography_place__link {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .biography_place__link {
+        align-items: center;
+    }
+}
+
+
+.biography_place_photo__dev {
+    width: auto;
+    max-height: 327px;
+    border-radius: 100px;
+}
+
+@media screen and (max-width: 740px) {
+    .biography_place_photo__dev {
+        margin-bottom: 40px;
+    }
+}
