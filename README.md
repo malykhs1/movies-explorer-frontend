@@ -28,7 +28,7 @@ Figma.
 
 ---
 
-### ![Functional](https://img.icons8.com/ios-glyphs/25/000000/mechanistic-analysis.png) Функциональные возможности проекта:
+### ![Functional](https://img.icons8.com/ios-glyphs/25/000000/mechanistic-analysis.png) App functionality:
 
 - loading user data and photos from the server; 
 - editing data in the user profile;
